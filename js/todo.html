@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo++</title>
+</head>
+<body>
+  <div>
+    <h1>DaFar++</h1>
+    <div>
+      <input id="todo_text" type="text">
+      <button id="add_todo">Zonta</button>
+    </div>
+    <div id="todo_list">
+
+    </div>
+  </div>
+  <script>
+    let todoText = document.getElementById("todo_text");
+    let addTodoBtn = document.getElementById("add_todo");
+
+    let todoListContainer = document.getElementById("todo_list");
+
+    let todoList = [];
+
+    addTodoBtn.onclick = function() {
+      // 0. Controllo che ci sia testo
+      if (todoText.value == "") {
+        return;
+      }
+
+      // 1. Leggo testo input
+      let newTodoText = todoText.value;
+
+      // 1.1 Reset testo input
+      todoText.value = "";
+
+      // 2. Aggiungo testo a todo
+      todoList.push(newTodoText);
+
+      // 3. Aggiorno vista todo
+      updateTodoList();
+    };
+
+    function updateTodoList() {
+      console.log(todoList);
+      let htmlList = "<ul>";
+
+      // htmlList = htmlList + "<li>Ciaone</li>";
+      //htmlList += "<li>Ciaone</li>";
+
+      todoList.forEach((todo, index) => {
+        console.log(index);
+        htmlList += "<li>";
+        htmlList += todo;
+        htmlList += "<button onclick='deleteTodo(" + index + ")'>x</button>";
+        htmlList += "</li>";
+      });
+
+      htmlList += "</ul>";
+
+      todoListContainer.innerHTML = htmlList;
+    }
+
+    function deleteTodo(index) {
+      todoList.splice(index, 1);
+      updateTodoList();
+    }
+  </script>
+</body>
+</html>

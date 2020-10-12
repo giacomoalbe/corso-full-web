@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  Adesso c'è contenuto?
+  <input type="text" name="nome" placeholder="Inserisci il tuo nombre">
+  <button id="stamba">Stamba</button>
+
+  <h2 id="saluto"></h2>
+
+  <h1>
+    Javascript 4 Linearicity</h1>
+  <h1>
+    <img src="https://i.ebayimg.com/images/g/S5kAAOSwKjlbY~U2/s-l640.jpg" alt="">
+    Stupido Cane cit. Giustino</h1>
+  <script>
+    // Metodo per scrivere sulla console
+    console.log("Ciao, Mondo :)");
+
+    //console.log("Non stampo questa stringa");
+
+    // Questo è un commento anche in Javascript
+
+    /*
+      Questo è un commento multilinea
+      anche in Javascript
+    */
+
+    //var nomeVariabile = "Stringa";
+    // Variabile tipo stringa
+    let nomeVariabile2 = "Stringa2";
+    // Variabile tipo intero
+    let numero = 10;
+    // Variabile tipo booleano
+    let booleano = true;
+    // Variabile tipo decimale/float
+    let flattone = 10.5;
+    // Variabile tipo carattere
+    let char = 'c';
+    // Variabile tipo array
+    let lista = [1,2,3,4,5];
+    // Variabile tipo oggetto/dizionario (array associativo)
+    let ogg = {
+      chiave: "valore",
+      "chiave-vera": "Valore vero",
+    };
+
+    let func = function() {
+      console.log("Ciaone");
+    }
+
+    func();
+
+    let numeroA = 10;
+    let numeroB = 2;
+
+    let prodotto = numeroA * numeroB;
+    let divisione = numeroA / numeroB;
+    let somma = numeroA + numeroB;
+    let differenza = numeroA - numeroB;
+    let potenza = numeroA ** numeroB;
+    let modulo = numeroA % numeroB;
+
+    let numeraAPari = numeroA % 2 == 0;
+
+    // Operazioni logiche/booleane
+
+    let vero = true;
+    let falso = false;
+
+    let andLogico = vero && falso;
+    let orLogico = vero || falso;
+    let notLogico = !vero;
+
+    let confronto = vero == falso;
+
+    // Operazioni con le stringhe
+    let stringaA = "ciaone";
+    let stringaB = "prontone";
+
+    let concat = stringaA + stringaB;
+    let molt = stringaA * 10;
+
+    // Operazioni con gli array
+    let arrayVuoto = [];
+
+    arrayVuoto.push("ciaone");
+
+    console.log(arrayVuoto);
+    console.log(arrayVuoto.length);
+
+    //arrayVuoto.splice(0, 1);
+
+    console.log(arrayVuoto);
+    console.log(arrayVuoto.length);
+
+    let primoElemento = arrayVuoto[0];
+
+    console.log(primoElemento);
+
+    let prova = undefined;
+    let prova2 = null;
+
+    // Definizione della funzione
+    function nome() {
+      // Corpo della funzione
+      let dentroNome = "ciaone";
+      console.log(dentroNome);
+    }
+
+    // Esecuzione della funzione
+    // function call
+    nome();
+
+    // Selezione
+    let entra = true;
+
+    numero = 10;
+    let numeroBool = !!numero;
+
+    console.log(numeroBool);
+
+    entra = false;
+    let eta = 16;
+
+    if (entra) {
+      console.log("Entra");
+    } else if (eta > 18) {
+      console.log("Non entra ma sopra 18");
+    } else {
+      console.log("Non entra e sotto 18");
+    }
+
+    let giornoDellaSettimana = "mer";
+
+    switch (giornoDellaSettimana) {
+      case 'lun':
+        console.log("E' lunedì");
+        break;
+      case 'mar':
+        console.log("E' martedì");
+        break;
+      default:
+        console.log("E' " + giornoDellaSettimana);
+    }
+
+    console.log("Dopo switch");
+
+    // Iterazione
+
+    for (let i=0; i < 10; i++) {
+      console.log("Indice: " + i);
+    }
+
+    let dendro = true;
+    let j = 0;
+
+    while (dendro) {
+      j++;
+
+      if (j == 100) {
+        dendro = false;
+      }
+
+      console.log("Indice a " + j);
+    }
+
+    let listaBella = [1,2,3,4,5,6];
+
+    listaBella.forEach(function(elemento) {
+      console.log(elemento);
+    });
+
+    listaBella.forEach((elemento, index) => {
+      console.log("Elemento: " + elemento + " Indice: " + index);
+    });
+
+    let titolo = document.getElementsByTagName("h1")[1];
+
+    console.log(titolo.innerHTML);
+
+    let button = document.getElementById("stamba");
+
+    button.onclick = function() {
+      let input = document.getElementsByName("nome")[0];
+      console.log(input.value);
+
+      let saluto = document.getElementById("saluto");
+      saluto.innerText = "Ciaone, " + input.value + "!";
+    }
+
+    console.log(button);
+
+
+  </script>
+</body>
+</html>

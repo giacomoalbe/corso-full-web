@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Vue JS</title>
+</head>
+<div id="app">
+  {{ message }}
+  {{ printTime() }}
+</div>
+<body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        message: "Ciao, Vue :)",
+      },
+      methods: {
+        printTime() {
+          return new Date();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

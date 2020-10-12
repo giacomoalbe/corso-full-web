@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+</head>
+<body>
+  <div>
+    <h1>The Kounteer</h1>
+    <h2 id="contatore">
+      0
+    </h2>
+    <div>
+      <button id="togli">-</button>
+      <button id="reset">Reset</button>
+      <button id="aggiungi">+</button>
+    </div>
+  </div>
+  <script>
+    let contatore = document.getElementById("contatore");
+    let togli = document.getElementById("togli");
+    let reset = document.getElementById("reset");
+    let aggiungi = document.getElementById("aggiungi");
+
+    let conteggio = 0;
+
+    function updateContatore() {
+      contatore.innerText = conteggio + "k € per Jack";
+    }
+
+    togli.onclick = function() {
+      // conteggio--
+      // conteggio -= 1
+      conteggio = conteggio - 1;
+      updateContatore();
+    };
+
+    aggiungi.onclick = function() {
+      // conteggio++
+      // conteggio += 1
+      conteggio = conteggio + 1;
+      updateContatore();
+    };
+
+    reset.onclick = function() {
+      conteggio = 0;
+      updateContatore();
+    };
+  </script>
+</body>
+</html>
