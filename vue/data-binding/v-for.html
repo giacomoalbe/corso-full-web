@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>V-For</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div v-for="(elem, index) in coseDaSapere" style="font-weight: bold">
+      {{index+1}}. {{ elem }}
+    </div>
+    <button @click="adda()">Adda</button>
+  </div>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          coseDaSapere: [
+            "proprietà reattive",
+            "oggetti di Javascript",
+            "italiano",
+            "dialetto veronese"
+          ]
+        };
+      },
+      methods: {
+        adda() {
+          this.coseDaSapere.push("🦇");
+        }
+      }
+    });
+  </script>
+</body>
+</html>

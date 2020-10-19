@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+    <h2>
+      Righe: {{ lastRighe }} <br>
+      Colonne: {{ lastColonne }}
+    </h2>
+    <button @click="btnClick">ClickMeeeeeeeeeee ;)</button>
+    <input type="text" name="nome" v-model="message">
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          message: "Ciao, Erik :)",
+          coloreSelezionato: "red",
+          lastRighe: 10,
+          lastColonne: 20,
+        }
+      },
+      methods: {
+        btnClick: function() {
+          this.message = "Heloooooooo";
+          this.printNewName("Ciaone");
+        },
+        printNewName: function(newName) {
+          console.log(newName);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

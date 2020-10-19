@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erik ti prego nooooo</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .selected {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="nome">
+    <h2>
+      Ciao, {{ nome }}!
+    </h2>
+
+    <div
+    :class="{
+      'selected': selectedColor == 'red'
+    }"
+    @click="changeColor('red')">Rosso</div>
+    <div
+    :class="{
+      'selected': selectedColor == 'green'
+    }"
+      @click="changeColor('green')">Verde</div>
+    <div
+    :class="{
+      'selected': selectedColor == 'blue'
+    }"
+      @click="changeColor('blue')">Blu</div>
+
+    <h2>
+      Il colore selezionato è: {{ selectedColor }}
+    </h2>
+  </div>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          nome: "",
+          selectedColor: "red",
+        }
+      },
+      methods: {
+        changeColor(newColor) {
+          this.selectedColor = newColor;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

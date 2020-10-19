@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dat Binding</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+    <h1>{{ message }}</h1>
+    <button @click="cambiami()">
+      Cliccami e cambierò, promesso!
+    </button>
+    </div>
+  <script>
+    let message = "Ciaone";
+
+    function cambiami() {
+      message = "Camabito";
+    }
+
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          message: "Ciaone",
+          ciaone: "Message",
+        }
+      },
+      methods: {
+        cambiami: function() {
+          console.log("Cambio!");
+          this.message =
+            this.message == "Cambiato"
+            ? "Ciaone"
+            : "Cambiato";
+        }
+      }
+    });
+  </script>
+</body>
+</html>

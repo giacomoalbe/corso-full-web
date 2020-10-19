@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>V-If</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    Sei maggiorenne?
+    <input type="checkbox" v-model="isMaggiorenne">
+    <div>
+      {{ getVadoAMontorio() }}
+    </div>
+    <div v-show="isMaggiorenne">Fiuuuuu</div>
+    <div v-show="!isMaggiorenne">Dannazione!</div>
+  </div>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          isMaggiorenne: false,
+        };
+      },
+      methods: {
+        getVadoAMontorio() {
+          return this.isMaggiorenne
+            ? 'Fiuuuuuuuuuuuuuu'
+            : 'Oh c***o, adesso sono nei guiiiiiiiiii!';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

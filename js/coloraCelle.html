@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coloraCelle</title>
+
+    <style>
+            *{
+                border: none;
+                padding: none;
+                margin: none;
+            }
+
+            .card{
+                position: absolute;
+
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                padding: 20px;
+            }
+
+            #title{
+                display: block;
+                flex: 100%;
+                text-align: center;
+
+                font-size: x-large;
+                font-weight: 500;
+
+                height: 50px;
+            }
+
+            #input{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                flex: 100%;
+                height: fit-content;
+            }
+            input{
+                border-bottom: solid 1px grey;
+            }
+            .btn{
+                border: solid 2px green;
+                color: green;
+
+                cursor: pointer;
+            }
+            #output{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                flex: 100%;
+
+                padding: 20px;
+
+                height: fit-content;
+            }
+
+            .row{
+                flex: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .cell{
+                display: block;
+                text-align: center;
+            }
+
+            .black{
+                background-color: black;
+                color: white
+            }
+
+            .white{
+                background-color: rgb(199, 197, 197);
+                color: black;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div id="title">coloraCelle</div>
+        <div id="input">
+        <div class="btn" onclick="red(row.value,col.value)">Red</div>
+        <div class="btn" onclick="blue(row.value,col.value)">Blue</div>
+        <div class="btn" onclick="green(row.value,col.value)">green</div>
+        <div class="btn" onclick="reset(row.value,col.value)">RESET</div>
+
+            <label for="row">rows:</label>
+            <input type="number" name="row" id="row">
+            <label for="col">columns:</label>
+            <input type="number" name="col" id="col">
+
+            <div class="btn" onclick="draw(row.value,col.value)">draw</div>
+        </div>
+        <div id="output">
+
+        </div>
+    </div>
+
+    <script> 
+
+        function draw(r,c){
+            chessboard = '';
+
+            for(let i = 0; i < r; i++){
+
+                chessboard += '<div class="row">';
+
+                for(let j = 0; j < c; j++){
+
+                    chessboard += '<div style="flex:' + 1/c + '; border: 1px solid black; height: 50px; width:10px; " onclick = 'coloraCasella($(i)_$(j))'></div>";
+                }
+
+                chessboard += '</div>';
+            }
+
+            document.getElementById('output').innerHTML = chessboard;
+            
+            
+        }   
+        
+        function coloraCasella(i,j){
+            console.log(i,j);
+            let casella = document.getElementById(id);
+        }
+
+    
+    </script>    
+    
+</body>
+</html>
