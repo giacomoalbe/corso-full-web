@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Current Selected</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <div class="flex flex-row">
+      <div
+        v-for="tab in tabs"
+        class="px-2 py-2 cursor-pointer hover:bg-gray-200 flex-grow text-center"
+        :class="currentTab == tab ? 'bg-red-200 hover:bg-red-400' : 'bg-white'"
+        @click="selectTab(tab)"
+      >
+        {{ tab }}
+      </div>
+    </div>
+    <div v-if="currentTab == 'Youtube'">
+      Siamo su Youtube b***c!
+    </div>
+    <div v-else="">
+      Tutto il resto del mondo!
+    </div>
+  </div>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          tabs: [
+            "Youtube",
+            "Google Search",
+            "Facebook",
+            "Tinder",
+            "Reddit",
+            "Mediashopping"
+          ],
+          currentTab: null,
+          quiz: [
+            "Domanda 1",
+            "Domanda 2",
+            "Domanda 3",
+            "Domanda 4",
+          ],
+        };
+      },
+      mounted() {
+        console.log("Ehi, componente pronto per fare cose stratosferiche!");
+      },
+      methods: {
+        selectTab(tab) {
+          this.currentTab = tab;
+        }
+      },
+      computed: {
+        message() {
+          return "Ciaone";
+        }
+      },
+    });
+  </script>
+</body>
+</html>

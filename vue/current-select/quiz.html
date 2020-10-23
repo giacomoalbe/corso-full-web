@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QuiZone</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <div class="h-screen flex flex-col">
+      <div class="py-3 px-4 flex flex-row justify-between">
+        <div v-for="(domanda, index) in domande" class="flex flex-row items-center">
+          <div
+            :class="currentDomandaIndex == index ? 'bg-green-400' : 'bg-gray-400'"
+            class="h-6 w-6 rounded-full text-center mr-1">
+            {{ index + 1 }}
+          </div>
+          {{ domanda }}
+        </div>
+      </div>
+      <div class="flex-grow flex flex-row items-center justify-center">
+        {{ currentDomanda }}
+      </div>
+      <div class="flex flex-row items-center justify-between">
+        <button
+          class="text-green-800 p-2 rounded disabled:bg-gray-100 disabled:current-not-allowed"
+          :class="currentDomandaIndex == 0 ? 'bg-gray-400' : 'bg-green-400'"
+          :disabled="currentDomandaIndex == 0"
+          @click="indietro()">
+          Indietro
+        </button>
+        <button
+          class="text-green-800 p-2 rounded disabled:bg-gray-100 disabled:current-not-allowed"
+          :class="currentDomandaIndex == (domande.length - 1) ? 'bg-gray-400' : 'bg-green-400'"
+          :disabled="currentDomandaIndex == (domande.length - 1)"
+          @click="avanti()">
+          Avanti
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          currentDomandaIndex: 0,
+          domande: [
+            "Domanda 1",
+            "Domanda 2",
+            "Domanda 3",
+            "Domanda 4",
+          ],
+        };
+      },
+      mounted() {
+        console.log("Ehi, componente pronto per fare cose stratosferiche!");
+      },
+      methods: {
+        avanti() {
+          this.currentDomandaIndex++;
+        },
+        indietro() {
+          this.currentDomandaIndex--;
+        },
+        selectTab(tab) {
+          this.currentTab = tab;
+        }
+      },
+      computed: {
+        message() {
+          return "Ciaone";
+        },
+        currentDomanda() {
+          return this.domande[this.currentDomandaIndex];
+        }
+      },
+    });
+  </script>
+</body>
+</html>
